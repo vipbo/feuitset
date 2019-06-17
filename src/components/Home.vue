@@ -9,36 +9,44 @@
       <!-- <div slot="add">添加</div> -->
     </m-header>
     <div class="top"></div>
-    <div class="content">
-      <div class="item">
-          <i class="iconfont iconshenfenzheng" ></i>
-          <div>XXXX</div>
+      <div class="company" >
+        <img src="../assets/img/zwt.png" alt="" >
+        <div class='text'>
+          <div class="name" @click='showDetailName'>
+              <span class="detail">恭喜发财有限公司</span>
+             <i :class="`iconfont iconfanhui ${isRotate?'is-roate270':'is-roate90'}`" ></i>
+          </div> 
+          <div class="other">开票代码：4615</div>
+        </div>
       </div>
-      <div  class="item">
+    <div class="content"  >
+      <router-link to='manualInvoice' class="item">
           <i class="iconfont iconshenfenzheng" ></i>
-          <div>XXXX</div>
-      </div>
-      <div  class="item">
+          <div>手工开票</div>
+      </router-link>
+      <router-link to='scanInvoice' class="item">
           <i class="iconfont iconshenfenzheng" ></i>
-          <div>XXXX</div>
-      </div>
-      <div  class="item">
+          <div>扫码开票</div>
+      </router-link>
+      <router-link to='checkInvoice' class="item">
           <i class="iconfont iconshenfenzheng" ></i>
-          <div>XXXX</div>
-      </div>
-      <div  class="item">
+          <div>审核开票</div>
+      </router-link>
+      <router-link to='invoiceRecord' class="item">
           <i class="iconfont iconshenfenzheng" ></i>
-          <div>XXXX</div>
-      </div>
-      <div  class="item">
+          <div>开票记录</div>
+      </router-link >
+      <router-link to='goodsInfo' class="item">
           <i class="iconfont iconshenfenzheng" ></i>
-          <div>XXXX</div>
-      </div>
+          <div>商品信息</div>
+      </router-link >
+      <router-link to='invoiceInfo'  class="item">
+          <i class="iconfont iconshenfenzheng" ></i>
+          <div>开票信息</div>
+      </router-link >
     </div>
 
-    <div class="advertising">
-      
-    </div>
+    <div class="advertising"></div>
   </div>
 </template>
 
@@ -49,8 +57,14 @@ export default {
   name: "HelloWorld",
   data() {
     return {
-      msg: "Welcome to Your Vue.js App"
+      msg: "Welcome to Your Vue.js App",
+      isRotate: true
     };
+  },
+  methods: {
+    showDetailName: function() {
+      this.isRotate = !this.isRotate;
+    }
   },
   components: {
     MHeader,
@@ -64,19 +78,60 @@ export default {
 <style scoped lang='less'>
 .home {
   .top {
-    height: 130px;
+    height: 150px;
     width: 100%;
-    padding: 10px;
     position: fixed;
     z-index: -100;
-    background: lightblue;
+    background: rgb(0, 122, 255);
+  }
+  .company {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 90%;
+    margin: 65px auto 0;
+    color: #fff;
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    .text {
+      width: 80%;
+      .name {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .detail {
+          display: inline-block;
+          width: 95%;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        .is-roate270 {
+          transform: rotateZ(270deg);
+        }
+        .is-roate90 {
+          transform: rotateZ(90deg);
+        }
+      }
+      .other {
+        width: 95%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
   }
   .content {
     display: flex;
     flex-wrap: wrap;
     width: 90%;
     border: 1px solid #ccc;
-    margin: 130px auto 0;
+    margin: 20px auto 0;
     background: #fff;
     border-radius: 5px;
     .item {
@@ -86,6 +141,10 @@ export default {
       justify-content: center;
       align-items: center;
       margin: 10px 0;
+      i {
+        font-size: 30px;
+        color: blue;
+      }
     }
   }
   .advertising {

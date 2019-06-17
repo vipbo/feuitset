@@ -1,6 +1,6 @@
 <template>
     <div class="head-wrap">
-       <i class="iconfont iconfanhui" ></i>
+       <i class="iconfont iconfanhui" @click='goBack'></i>
        <div class="title">
           <slot name="title"></slot>
        </div>
@@ -13,6 +13,11 @@ export default {
   props: {
     three: {
       type: String
+    }
+  },
+  methods: {
+    goBack: function() {
+      this.$router.go(-1);
     }
   }
 };
