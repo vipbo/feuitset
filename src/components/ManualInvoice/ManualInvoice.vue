@@ -89,9 +89,7 @@
                 <p-component >发票明细</p-component>
             </div>
             <invoice-detail />
-            <router-link to='addInvoiceDetail'>
-                <fe-button type="default" class='add-btn'>添加发票明细</fe-button>
-            </router-link>
+            <fe-button type="default" class='add-btn' link='addInvoiceDetail'>添加发票明细</fe-button>
         </div>
        
         <div class="foot-box">
@@ -101,14 +99,60 @@
               <span class="number">10984.00</span>
             </div>
             <div>
-              <fe-button type="primary" class='submit-btn'>提交开票</fe-button>
+              <fe-button type="primary" class='submit-btn' @click.native="submitInvoice">提交开票</fe-button>
             </div>
           </div>
         </div>
+        <fe-popup  v-model="isSubmitInvoice" class='self-popup' height='400px'  >
+            <div class="popup-title">
+              <div class="cancel" @click="popupCancel">取消</div>
+              <div class="ok">确认开票</div>
+            </div>
+            <div class="open-company">
+              <div class="company-type">开票企业</div>
+              <div class="company-name">欢天喜地发红包有限公司</div>
+            </div>
+             <div class="open-company">
+              <div class="company-type">发票种类</div>
+              <div class="company-name">收购发票(电子)</div>
+            </div>
+             <div class="open-company">
+              <div class="company-type">发票抬头</div>
+              <div class="company-name">买买买公司</div>
+            </div>
+             <div class="open-company">
+              <div class="company-type">企业税号</div>
+              <div class="company-name">98745632158</div>
+            </div>
+             <div class="open-company">
+              <div class="company-type">发票金额</div>
+              <div class="company-name">￥300.00</div>
+            </div>
+             <div class="open-company">
+              <div class="company-type">交付手机</div>
+              <div class="company-name">17898986565</div>
+            </div>
+             <div class="open-company">
+              <div class="company-type">交付邮箱</div>
+              <div class="company-name">17898986565@qq.com</div>
+            </div>
+            <div class="open-company">
+               <div class="company-type">备注</div>
+              <textarea class="company-name">备注内容备注内容备注内容备注内容备注内容备注内容备注内容备注内容
+              </textarea>
+            </div>
+            <fe-button 
+                type="primary" 
+                class='again-submit'
+                link='openingInvoice'
+                  >
+                  确定开票
+             </fe-button>
+        </fe-popup>
     </div>
 </template>
 <script>
-import { Tab, TabItem, Switch, Button, Group, PopupPicker } from "feui";
+import { Tab, TabItem, Switch, Button, Group, PopupPicker, Popup } from "feui";
 import MHeader from "../common/MHeader";
 import PComponent from "../common/PComponent";
 import InvoiceDetail from "../common/InvoiceDetail";
@@ -120,6 +164,7 @@ export default {
     [Button.name]: Button,
     [PopupPicker.name]: PopupPicker,
     [Group.name]: Group,
+    [Popup.name]: Popup,
     MHeader,
     PComponent,
     InvoiceDetail
@@ -127,6 +172,7 @@ export default {
   data() {
     return {
       isExtend: true,
+      isSubmitInvoice: false,
       title: "发票种类",
       list: [
         // ["小米1", "iPhone1", "华为1", "情怀1", "三星1", "其他1", "不告诉你1"]
@@ -143,16 +189,22 @@ export default {
     };
   },
   methods: {
-    onShow: function() {
+    submitInvoice() {
+      this.isSubmitInvoice = true;
+    },
+    popupCancel() {
+      this.isSubmitInvoice = false;
+    },
+    onShow() {
       console.log("show");
     },
-    onHide: function() {
+    onHide() {
       console.log("hide");
     },
-    onChange: function() {
+    onChange() {
       console.log("change");
     },
-    changeExtend: function() {
+    changeExtend() {
       this.isExtend = !this.isExtend;
     }
   }
@@ -382,6 +434,40 @@ export default {
       .submit-btn {
         font-size: 16px;
       }
+    }
+  }
+  .self-popup {
+    background: rgb(255, 255, 255);
+    overflow: scroll;
+    .popup-title {
+      padding: 10px;
+      display: flex;
+      border-bottom: 1px solid #ccc;
+      .cancel {
+        flex: 1;
+        color: #ccc;
+        font-size: 14px;
+      }
+      .ok {
+        flex: 2;
+        margin-left: 30px;
+      }
+    }
+    .open-company {
+      display: flex;
+      padding: 10px 10px 0;
+      .company-type {
+        flex: 1;
+        color: #ccc;
+      }
+      .company-name {
+        flex: 3;
+        border: none;
+      }
+    }
+    .again-submit {
+      margin: 15px auto 0;
+      width: 90%;
     }
   }
 }

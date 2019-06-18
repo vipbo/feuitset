@@ -152,7 +152,7 @@ export default {
     width: 90%;
     border-radius: 5px;
     margin: 10px auto;
-    background: url("../assets/img/zwt.png") no-repeat;
+    background: url("../assets/img/gg1.png") no-repeat;
     background-size: cover;
   }
 }
