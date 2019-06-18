@@ -7,6 +7,7 @@ import CheckInvoice from '@/components/CheckInvoice/CheckInvoice'
 import InvoiceRecord from '@/components/InvoiceRecord/InvoiceRecord'
 import GoodsInfo from '@/components/GoodsInfo/GoodsInfo'
 import InvoiceInfo from '@/components/InvoiceInfo/InvoiceInfo'
+import AddInvoiceDetail from '@/components/AddInvoiceDetail/AddInvoiceDetail'
 
 Vue.use(Router)
 
@@ -46,6 +47,11 @@ export default new Router({
       path: '/invoiceInfo',
       name: 'InvoiceInfo',
       component: InvoiceInfo
+    },
+    {
+      path: '/addInvoiceDetail',
+      name: 'AddInvoiceDetail',
+      component: AddInvoiceDetail
     },
   ]
 })

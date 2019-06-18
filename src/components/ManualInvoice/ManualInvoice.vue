@@ -12,13 +12,26 @@
             <fe-tabitem >个人/其他</fe-tabitem>
         </fe-tab> 
         <div class="content">
-             <div class="type">
+          <fe-group >
+           <popup-picker 
+              :title="title" 
+              :data="list" 
+              v-model="value"
+              @on-show="onShow" 
+              @on-hide="onHide" 
+              @on-change="onChange" 
+              placeholder="请选择"
+              value-text-align='left'
+              >
+            </popup-picker>
+              </fe-group>
+             <!-- <div class="type">
                  <div class="name">发票种类</div>
                  <div class="detail">
                      <input type="text" placeholder="必填，请选择发票种类">
                      <i class="iconfont iconyoujiantou" ></i>
                  </div>
-             </div>
+             </div> -->
              <div class="oli">
                  <div>开成品油发票</div>
                 <fe-switch title=""></fe-switch>
@@ -76,8 +89,11 @@
                 <p-component >发票明细</p-component>
             </div>
             <invoice-detail />
-            <fe-button type="default" class='add-btn'>添加发票明细</fe-button>
+            <router-link to='addInvoiceDetail'>
+                <fe-button type="default" class='add-btn'>添加发票明细</fe-button>
+            </router-link>
         </div>
+       
         <div class="foot-box">
           <div  class="foot-area">
             <div>
@@ -92,7 +108,7 @@
     </div>
 </template>
 <script>
-import { Tab, TabItem, Switch, Button } from "feui";
+import { Tab, TabItem, Switch, Button, Group, PopupPicker } from "feui";
 import MHeader from "../common/MHeader";
 import PComponent from "../common/PComponent";
 import InvoiceDetail from "../common/InvoiceDetail";
@@ -102,16 +118,40 @@ export default {
     [TabItem.name]: TabItem,
     [Switch.name]: Switch,
     [Button.name]: Button,
+    [PopupPicker.name]: PopupPicker,
+    [Group.name]: Group,
     MHeader,
     PComponent,
     InvoiceDetail
   },
   data() {
     return {
-      isExtend: true
+      isExtend: true,
+      title: "发票种类",
+      list: [
+        // ["小米1", "iPhone1", "华为1", "情怀1", "三星1", "其他1", "不告诉你1"]
+        [
+          "收购发票(电子)",
+          "收购发票(纸质)",
+          "普通发票(电子)",
+          "普通发票(纸质)",
+          "专用发票",
+          "普通发票(卷式)"
+        ]
+      ],
+      value: []
     };
   },
   methods: {
+    onShow: function() {
+      console.log("show");
+    },
+    onHide: function() {
+      console.log("hide");
+    },
+    onChange: function() {
+      console.log("change");
+    },
     changeExtend: function() {
       this.isExtend = !this.isExtend;
     }
@@ -135,25 +175,29 @@ export default {
   }
   .content {
     background: #fff;
-    .type {
-      display: flex;
-      // margin: 10px auto;
-      padding: 10px;
-      border-bottom: 1px solid #ccc;
-      .name {
-        flex: 1.8;
-      }
-      .detail {
-        flex-grow: 1;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        input {
-          height: 25px;
-          border: none;
-        }
-      }
+    .nuim-popup-picker-placeholder,
+    .nuim-popup-picker-value {
+      margin-left: 40px;
     }
+    // .type {
+    //   display: flex;
+    //   // margin: 10px auto;
+    //   padding: 10px;
+    //   border-bottom: 1px solid #ccc;
+    //   .name {
+    //     flex: 1.8;
+    //   }
+    //   .detail {
+    //     flex-grow: 1;
+    //     display: flex;
+    //     justify-content: space-between;
+    //     align-items: center;
+    //     input {
+    //       height: 25px;
+    //       border: none;
+    //     }
+    //   }
+    // }
 
     .oli {
       display: flex;
