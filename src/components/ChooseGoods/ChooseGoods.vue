@@ -1,6 +1,6 @@
 <template>
     <div class="choose-goods">
-      <m-header>
+        <m-header>
              <div slot="title">选择商品</div>
         </m-header>
         <div class="search-area">

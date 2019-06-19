@@ -1,7 +1,7 @@
 <template>
     <div class="invoice-detail">
         <m-header>
-            <div slot="title">扫码开票</div>
+            <div slot="title">发票详情</div>
         </m-header>
         <div class="content">
             <company-name :name="'恭喜发财有限公司'" />
