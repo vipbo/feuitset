@@ -3,7 +3,7 @@
         <m-header >
             <div slot="title">手工开票</div>
         </m-header>
-        <div class="company">恭喜发财有限公司</div>
+          <company-name :name="'恭喜发财有限公司'"/>
         <div class='p-component'>
            <p-component >发票信息</p-component>
         </div>
@@ -25,13 +25,6 @@
               >
             </popup-picker>
               </fe-group>
-             <!-- <div class="type">
-                 <div class="name">发票种类</div>
-                 <div class="detail">
-                     <input type="text" placeholder="必填，请选择发票种类">
-                     <i class="iconfont iconyoujiantou" ></i>
-                 </div>
-             </div> -->
              <div class="oli">
                  <div>开成品油发票</div>
                 <fe-switch title=""></fe-switch>
@@ -57,7 +50,7 @@
                       <div class="bank-id">开户行及账号</div>
                       <input type="text" placeholder="请输入开户行及账号">
                   </div>
-                    <div class="note-info">
+                  <div class="note-info">
                       <div class="note">备注</div>
                       <input type="text" placeholder="请输入备注文案">
                   </div>
@@ -154,6 +147,7 @@
 <script>
 import { Tab, TabItem, Switch, Button, Group, PopupPicker, Popup } from "feui";
 import MHeader from "../common/MHeader";
+import CompanyName from "../common/CompanyName";
 import PComponent from "../common/PComponent";
 import InvoiceDetail from "../common/InvoiceDetail";
 export default {
@@ -166,6 +160,7 @@ export default {
     [Group.name]: Group,
     [Popup.name]: Popup,
     MHeader,
+    CompanyName,
     PComponent,
     InvoiceDetail
   },
@@ -212,13 +207,6 @@ export default {
 </script>
 <style scope lang='less'>
 .manual {
-  .company {
-    height: 40px;
-    line-height: 40px;
-    color: #fff;
-    background: #007aff;
-    text-align: center;
-  }
   .p-component {
     line-height: 30px;
     padding: 10px;
@@ -231,26 +219,6 @@ export default {
     .nuim-popup-picker-value {
       margin-left: 40px;
     }
-    // .type {
-    //   display: flex;
-    //   // margin: 10px auto;
-    //   padding: 10px;
-    //   border-bottom: 1px solid #ccc;
-    //   .name {
-    //     flex: 1.8;
-    //   }
-    //   .detail {
-    //     flex-grow: 1;
-    //     display: flex;
-    //     justify-content: space-between;
-    //     align-items: center;
-    //     input {
-    //       height: 25px;
-    //       border: none;
-    //     }
-    //   }
-    // }
-
     .oli {
       display: flex;
       justify-content: space-between;

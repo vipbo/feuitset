@@ -10,6 +10,7 @@ import InvoiceInfo from '@/components/InvoiceInfo/InvoiceInfo'
 import AddInvoiceDetail from '@/components/AddInvoiceDetail/AddInvoiceDetail'
 import ChooseGoods from '@/components/ChooseGoods/ChooseGoods'
 import OpeningInvoice from '@/components/OpeningInvoice/OpeningInvoice'
+import InvoiceDetail from '@/components/InvoiceDetail/InvoiceDetail'
 
 Vue.use(Router)
 
@@ -64,6 +65,11 @@ export default new Router({
       path: '/openingInvoice',
       name: 'OpeningInvoice',
       component: OpeningInvoice
+    },
+    {
+      path: '/invoiceDetail',
+      name: 'InvoiceDetail',
+      component: InvoiceDetail
     },
   ]
 })
