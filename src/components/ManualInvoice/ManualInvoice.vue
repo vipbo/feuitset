@@ -27,7 +27,7 @@
               </fe-group>
              <div class="oli">
                  <div>开成品油发票</div>
-                <fe-switch title=""></fe-switch>
+                <fe-switch title="" class="open-close"></fe-switch>
              </div>
              <div class="invoice-item">
                  <div class="invoice">发票抬头</div>
@@ -225,6 +225,9 @@ export default {
       align-items: center;
       padding: 10px;
       border-bottom: 1px solid #ccc;
+      .open-close {
+        position: inherit;
+      }
     }
     .invoice-item {
       display: flex;

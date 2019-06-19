@@ -7,7 +7,7 @@
          <div class="oil-invoice">
              <div class="oli">
                  <div>开成品油发票</div>
-                <fe-switch title=""></fe-switch>
+                <fe-switch title="" class="open-close"></fe-switch>
              </div>
              <div class="note-info">
                 <div class="note">备注</div>
@@ -15,7 +15,7 @@
              </div>
              <div class="show-note">
                  <div>发票显示备注</div>
-                <fe-switch title=""></fe-switch>
+                <fe-switch title="" class="open-close"></fe-switch>
              </div>
          </div>
          <div class="detail-area">
@@ -66,6 +66,9 @@ export default {
       align-items: center;
       padding: 10px;
       border-bottom: 1px solid #ccc;
+      .open-close {
+        position: inherit;
+      }
     }
     .note-info {
       display: flex;
@@ -80,6 +83,9 @@ export default {
         border: none;
         flex-grow: 1;
       }
+    }
+    .open-close {
+      position: inherit;
     }
   }
   .detail-area {
