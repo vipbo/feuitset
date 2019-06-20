@@ -8,19 +8,20 @@
             <fe-button type="default" class='search-btn'>搜索</fe-button>
             <invoice-item v-for='invoice in allInvoices' :key='invoice.id' :invoice='invoice'/>
        
-        <div class="no-more">
-            <hr>
-            <div class='text'>没有更多了</div>
-         </div>
-         <div class='fixed-footer'>
-           <batch-choice bacth />
-         </div>
+            <!-- <div class="no-more">
+                <hr>
+                <div class='text'>没有更多了</div>
+            </div> -->
+            <div class='fixed-footer'>
+              <batch-choice bacth />
+            </div>
          </div> 
+         <divider>没有更多了</divider>
     </div>
 </template>
 <script>
 import data from "./data.json";
-import { Button } from "feui";
+import { Button, divider } from "feui";
 import MHeader from "../common/MHeader";
 import NoInvoice from "./NoInvoice";
 import InvoiceItem from "./InvoiceItem";
@@ -28,6 +29,7 @@ import BatchChoice from "./BatchChoice";
 export default {
   components: {
     [Button.name]: Button,
+    [divider.name]: divider,
     MHeader,
     NoInvoice,
     InvoiceItem,
@@ -53,20 +55,20 @@ export default {
       margin-top: 10px;
     }
   }
-  .no-more {
-    position: relative;
-    padding-top: 20px;
-    background: #f0f2f3;
-    .text {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      padding: 0 32px;
-      transform: translateX(-50%) translateY(-16%);
-      background: #f0f2f3;
-      color: #ccc;
-    }
-  }
+  // .no-more {
+  //   position: relative;
+  //   padding-top: 20px;
+  //   background: #f0f2f3;
+  //   .text {
+  //     position: absolute;
+  //     left: 50%;
+  //     top: 50%;
+  //     padding: 0 32px;
+  //     transform: translateX(-50%) translateY(-16%);
+  //     background: #f0f2f3;
+  //     color: #ccc;
+  //   }
+  // }
   .fixed-footer {
     width: 100%;
     height: 80px;
