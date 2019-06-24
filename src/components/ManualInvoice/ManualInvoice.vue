@@ -13,18 +13,18 @@
         </fe-tab> 
         <div class="content">
           <fe-group >
-           <popup-picker 
-              :title="title" 
-              :data="list" 
-              v-model="value"
-              @on-show="onShow" 
-              @on-hide="onHide" 
-              @on-change="onChange" 
-              placeholder="请选择"
-              value-text-align='left'
-              >
-            </popup-picker>
-              </fe-group>
+            <popup-picker 
+                :title="title" 
+                :data="list" 
+                v-model="value"
+                @on-show="onShow" 
+                @on-hide="onHide" 
+                @on-change="onChange" 
+                placeholder="请选择"
+                value-text-align='left'
+                >
+              </popup-picker>
+          </fe-group>
              <div class="oli">
                  <div>开成品油发票</div>
                 <fe-switch title="" class="open-close"></fe-switch>

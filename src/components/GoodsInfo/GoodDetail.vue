@@ -1,7 +1,7 @@
 <template>
-    <div class="add-good">
+    <div class="good-detail">
         <m-header>
-            <div slot="title">添加商品信息</div>
+            <div slot="title">商品详情</div>
         </m-header>
         <div class="content">
             <div class="good-tax">
@@ -9,7 +9,7 @@
                     <div class="name">商品名称</div>
                     <input type="text" placeholder="必填，请输入商品名称">
                 </div>
-                <div  class="tax-code">
+                <div class="tax-code">
                     <div class="tax-number">税收分类编码</div>
                     <div class="detail">
                         <input type="text" placeholder="必填，请选择税收分类编码">
@@ -18,8 +18,16 @@
                         </router-link> 
                     </div>
                 </div> 
+                 <div class="tax-type-name">
+                    <div class="name">税收分类名称</div>
+                    <input type="text" placeholder="必填，请输入商品名称">
+                </div>
+                <div class="short-name">
+                    <div class="short">简称</div>
+                    <input type="text" placeholder="根据税收分类编码自动带出">
+                </div>
                 <div class="tax-area">
-                    <div class="tax">商品名称</div>
+                    <div class="tax">税率</div>
                     <input type="text" placeholder="根据税收分类编码自动带出">
                 </div>
             </div>
@@ -56,14 +64,35 @@
                     <div>享有优惠政策</div>
                     <fe-switch title="" class="open-close"></fe-switch>
                 </div>
+                 <div class="discounts-policy-type">
+                    <div class="policy-type">优惠政策类型</div>
+                    <div class="detail">
+                        <input type="text" placeholder="必填，请选择税收分类编码">
+                        <router-link to='chooseTaxTypeCode'>
+                            <i class="iconfont iconyoujiantou" ></i>
+                        </router-link> 
+                    </div>
+                </div> 
             </div>
-            <div class="default-good">
-                <div>设为默认商品</div>
-                <fe-switch title="" class="open-close"></fe-switch>
+            <div class="default-good-area">
+                <div class="default-good">
+                    <div>设为默认商品</div>
+                    <fe-switch title="" class="open-close"></fe-switch>
+                </div>
+                <div class="belong-to-department">
+                    <div class="department">所属部门</div>
+                    <div class="detail">
+                        <input type="text" placeholder="必填，请选择税收分类编码">
+                        <router-link to='chooseTaxTypeCode'>
+                            <i class="iconfont iconyoujiantou" ></i>
+                        </router-link> 
+                    </div>
+                </div> 
             </div>
             <div class="save-area">
-                <fe-button type="default" class='save-btn'>保存</fe-button>
+                <fe-button type="primary" class='save-btn'>保存</fe-button>
             </div>
+            
         </div>
     </div>
 </template>
@@ -79,7 +108,7 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-.add-good {
+.good-detail {
   .head-wrap {
     border-bottom: 1px solid #ccc;
     padding-bottom: 10px;
@@ -88,13 +117,16 @@ export default {
     .good-tax {
       background: #fff;
       .good-name,
+      .tax-type-name,
+      .short-name,
       .tax-area {
         display: flex;
         align-items: center;
         padding: 10px;
         border-bottom: 1px solid #ccc;
         .name,
-        .tax {
+        .tax,
+        .short {
           flex: 1.5;
         }
         input {
@@ -186,17 +218,56 @@ export default {
           position: inherit;
         }
       }
+      .discounts-policy-type {
+        display: flex;
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+        .policy-type {
+          flex: 1.8;
+        }
+        .detail {
+          flex-grow: 1;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          input {
+            height: 25px;
+            border: none;
+          }
+        }
+      }
     }
-    .default-good {
+    .default-good-area {
       margin-top: 10px;
       background: #fff;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px;
-      border-bottom: 1px solid #ccc;
-      .open-close {
-        position: inherit;
+
+      .default-good {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+        .open-close {
+          position: inherit;
+        }
+      }
+      .belong-to-department {
+        display: flex;
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+        .department {
+          flex: 1.8;
+        }
+        .detail {
+          flex-grow: 1;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          input {
+            height: 25px;
+            border: none;
+          }
+        }
       }
     }
     .save-area {
@@ -204,7 +275,6 @@ export default {
       padding: 10px;
       margin-top: 15px;
       .save-btn {
-        background: #ccc;
         color: #fff;
         width: 90%;
       }

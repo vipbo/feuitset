@@ -7,6 +7,7 @@ import CheckInvoice from '@/components/CheckInvoice/CheckInvoice'
 import InvoiceRecord from '@/components/InvoiceRecord/InvoiceRecord'
 import GoodsInfo from '@/components/GoodsInfo/GoodsInfo'
 import AddGoodInfo from '@/components/GoodsInfo/AddGoodInfo'
+import GoodDetail from '@/components/GoodsInfo/GoodDetail'
 import ChooseTaxTypeCode from '@/components/GoodsInfo/ChooseTaxTypeCode'
 import InvoiceInfo from '@/components/InvoiceInfo/InvoiceInfo'
 import AddInvoiceDetail from '@/components/AddInvoiceDetail/AddInvoiceDetail'
@@ -67,6 +68,11 @@ export default new Router({
       path: '/addInvoiceDetail',
       name: 'AddInvoiceDetail',
       component: AddInvoiceDetail
+    },
+    {
+      path: '/goodDetail',
+      name: 'GoodDetail',
+      component: GoodDetail
     },
     {
       path: '/chooseGoods',

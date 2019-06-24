@@ -6,7 +6,11 @@
         </m-header>
        
         <div class="content">
-          <empty-info v-if="!otherGoods.length" />
+          <empty-info
+              :tip="'您还没有添加过商品'" 
+              :descript="'请通过右上角添加按钮添加商品'" 
+              v-if="!otherGoods.length" 
+            />
           <div class="has-goods" v-else>
               <div class="search-area">
                 <div class="search">
