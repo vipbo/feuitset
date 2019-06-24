@@ -15,9 +15,9 @@
                         <input type="text" placeholder="必填，请选择税收分类编码">
                         <router-link to='chooseTaxTypeCode'>
                             <i class="iconfont iconyoujiantou" ></i>
-                        </router-link> 
+                        </router-link>
                     </div>
-                </div> 
+                </div>
                  <div class="tax-type-name">
                     <div class="name">税收分类名称</div>
                     <input type="text" placeholder="必填，请输入商品名称">
@@ -70,9 +70,9 @@
                         <input type="text" placeholder="必填，请选择税收分类编码">
                         <router-link to='chooseTaxTypeCode'>
                             <i class="iconfont iconyoujiantou" ></i>
-                        </router-link> 
+                        </router-link>
                     </div>
-                </div> 
+                </div>
             </div>
             <div class="default-good-area">
                 <div class="default-good">
@@ -83,16 +83,16 @@
                     <div class="department">所属部门</div>
                     <div class="detail">
                         <input type="text" placeholder="必填，请选择税收分类编码">
-                        <router-link to='chooseTaxTypeCode'>
+                        <router-link to='belongToDepartment'>
                             <i class="iconfont iconyoujiantou" ></i>
-                        </router-link> 
+                        </router-link>
                     </div>
-                </div> 
+                </div>
             </div>
             <div class="save-area">
                 <fe-button type="primary" class='save-btn'>保存</fe-button>
             </div>
-            
+
         </div>
     </div>
 </template>

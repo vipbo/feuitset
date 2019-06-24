@@ -32,7 +32,7 @@ export default {
   display: flex;
   height: 30px;
   background: #fff;
-  padding-left: 10px;
+  padding: 10px 15px;
   border-bottom: 1px solid #ccc;
   .name {
     flex: 1;
