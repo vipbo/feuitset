@@ -12,7 +12,7 @@
 export default {
   props: {
     three: {
-      type: String
+      type: Boolean
     }
   },
   methods: {
@@ -27,7 +27,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // padding: 2px 10px;
+  padding: 0 10px;
   height: 30px;
   .iconfanhui {
     color: rgb(0, 122, 255);

@@ -6,6 +6,8 @@ import ScanInvoice from '@/components/ScanInvoice/ScanInvoice'
 import CheckInvoice from '@/components/CheckInvoice/CheckInvoice'
 import InvoiceRecord from '@/components/InvoiceRecord/InvoiceRecord'
 import GoodsInfo from '@/components/GoodsInfo/GoodsInfo'
+import AddGoodInfo from '@/components/GoodsInfo/AddGoodInfo'
+import ChooseTaxTypeCode from '@/components/GoodsInfo/ChooseTaxTypeCode'
 import InvoiceInfo from '@/components/InvoiceInfo/InvoiceInfo'
 import AddInvoiceDetail from '@/components/AddInvoiceDetail/AddInvoiceDetail'
 import ChooseGoods from '@/components/ChooseGoods/ChooseGoods'
@@ -45,6 +47,16 @@ export default new Router({
       path: '/goodsInfo',
       name: 'GoodsInfo',
       component: GoodsInfo
+    },
+    {
+      path: '/addGoodInfo',
+      name: 'AddGoodInfo',
+      component: AddGoodInfo
+    },
+    {
+      path: '/chooseTaxTypeCode',
+      name: 'ChooseTaxTypeCode',
+      component: ChooseTaxTypeCode
     },
     {
       path: '/invoiceInfo',

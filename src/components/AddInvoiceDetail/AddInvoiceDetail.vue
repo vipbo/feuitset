@@ -4,7 +4,7 @@
              <div slot="title">添加发票明细</div>
         </m-header>
         <div class="goods-area">
-            <div  class="good">
+             <div  class="good">
                  <div class="name">商品名称</div>
                  <div class="detail">
                      <input type="text" placeholder="必填，请选择商品">
@@ -56,7 +56,6 @@ export default {
     background: #fff;
     .good {
       display: flex;
-      // margin: 10px auto;
       padding: 10px;
       border-bottom: 1px solid #ccc;
       .name {
