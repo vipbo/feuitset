@@ -6,24 +6,30 @@
         </m-header>
         <div class="search-area">
               <div class="month-filter">
-                  <div class="month">
+                  <router-link to="/timeFilter" class="month">
                     <span>本月</span>
                     <i class="iconfont iconxiaosanjiaodown"></i>
-                  </div>
+                  </router-link>
                   <div class="filter">筛选</div>
               </div>
               <div class="search-btn">
                 <span>搜索</span>
                 <i class="iconfont iconfangdajing"></i>
               </div>
-            </div>
+          </div>
         </div>
         <div class="content">
           <div class="detail">
+              <!-- <fe-scroll
+                class="item-container"
+                :on-refresh="onRefresh"
+                :on-infinite="onInfinite"
+                :hasHeader="hasHeader"
+              > -->
                  <invoice-record-item v-for="invoice in InvoiceDatas" :key="invoice.id" :invoice="invoice"/>
+                  <divider>没有更多了</divider>
+              <!-- </fe-scroll> -->
           </div>
-          <divider>没有更多了</divider>
-
         </div>
     </div>
 </template>
@@ -31,19 +37,51 @@
 // //发票种类： 1:蓝色,2:黄色
 //开票状态： 0：开票中，1:发票生成,2:开票完成,3:开票失败
 import data from "./data.json";
-import { Divider } from "feui";
+import { Scroll, Divider } from "feui";
 import MHeader from "../common/MHeader";
 import InvoiceRecordItem from "./InvoiceRecordItem";
 export default {
   components: {
+    [Scroll.name]: Scroll,
     [Divider.name]: Divider,
     MHeader,
     InvoiceRecordItem
   },
   data() {
     return {
-      InvoiceDatas: data
+      InvoiceDatas: data,
+      infiniteCount: 0,
+      hasHeader: true
     };
+  },
+  methods: {
+    onRefresh(done) {
+      setTimeout(() => {
+        // let start = this.top - 1;
+        // for (let i = start; i > start - 10; i--) {
+        //   this.items.splice(0, 0, i + " With You, Just Do CSS.");
+        // }
+        // this.top = this.top - 10;
+        // done();
+        console.log("555");
+      }, 1500);
+    },
+    onInfinite(done) {
+      setTimeout(() => {
+        // if (this.infiniteCount < 2) {
+        //   let start = this.bottom + 1;
+        //   for (let i = start; i < start + 10; i++) {
+        //     this.items.push(i + " With You, Just Do JS.");
+        //   }
+        //   this.bottom = this.bottom + 10;
+
+        //   this.infiniteCount++;
+        // }
+
+        // done();
+        console.log("666");
+      }, 1500);
+    }
   }
 };
 </script>
@@ -69,6 +107,7 @@ export default {
           border: 1px solid #ccc;
           border-radius: 20px;
           padding: 0px 10px;
+          color: #222222;
         }
         .filter {
           border-radius: 20px;
@@ -86,6 +125,9 @@ export default {
   }
   .content {
     margin-top: 80px;
+    .item-container {
+      border: 1px solid red;
+    }
   }
 }
 </style>

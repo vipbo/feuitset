@@ -5,6 +5,7 @@ import ManualInvoice from "@/components/ManualInvoice/ManualInvoice";
 import ScanInvoice from "@/components/ScanInvoice/ScanInvoice";
 import CheckInvoice from "@/components/CheckInvoice/CheckInvoice";
 import InvoiceRecord from "@/components/InvoiceRecord/InvoiceRecord";
+import TimeFilter from "@/components/InvoiceRecord/TimeFilter";
 import GoodsInfo from "@/components/GoodsInfo/GoodsInfo";
 import AddGoodInfo from "@/components/GoodsInfo/AddGoodInfo";
 import GoodDetail from "@/components/GoodsInfo/GoodDetail";
@@ -44,6 +45,11 @@ export default new Router({
       path: "/invoiceRecord",
       name: "InvoiceRecord",
       component: InvoiceRecord
+    },
+    {
+      path: "/timeFilter",
+      name: "TimeFilter",
+      component: TimeFilter
     },
     {
       path: "/goodsInfo",
